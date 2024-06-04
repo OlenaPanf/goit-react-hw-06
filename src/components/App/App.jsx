@@ -1,6 +1,3 @@
-import { useSelector } from 'react-redux';
-import { selectContacts } from '../../redux/contactsSlice.js'; 
-import { selectNameFilter } from '../../redux/filtersSlice.js'; 
 import ContactList from '../ContactList/ContactList';
 import ContactForm from '../ContactForm/ContactForm'
 import SearchBox from '../SearchBox/SearchBox'
@@ -15,19 +12,12 @@ import './App.css'
 
 export default function App() {
   
-  const contacts = useSelector(selectContacts); 
-  const filter = useSelector(selectNameFilter); 
-
-  const visibleContacts = contacts.filter((contact) =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
-
   return (
     <div className="container">
       <h1>Phonebook</h1>
       <ContactForm />
       <SearchBox />
-      <ContactList contacts={visibleContacts} />
+      <ContactList />
     </div>
   );
 }
